@@ -6,6 +6,7 @@ Description: Test for base utility function for ADSB and MODE-S
 import numpy as np
 import scipy as sp
 import base_util as bu
+import adsb_main as am
 import math
 
 
@@ -42,3 +43,13 @@ if(bu.parity_id(msg)=='576098'):
     print 'parity_id function is working fine'
 else:
     print 'Error with parity_id function'
+
+am.message_type(bu.type_code(msg))
+am.message_type(5)
+am.message_type(15)
+am.message_type(19)
+am.message_type(21)
+am.message_type(27)
+print bu.Data(msg)
+print len(bu.hex2bin(bu.Data(msg)))
+am.aircraft_identification(bu.hex2bin(bu.Data(msg)))

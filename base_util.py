@@ -10,8 +10,14 @@ import math
 def hex2bin(hexstr):
     """Convert a hexdecimal string to binary string, with zero fillings. """
     num=hex2int(hexstr)
-    return np.base_repr(num, base=2)
-
+    x=[]
+    n=len(hexstr)*4
+    n1=len(np.base_repr(num, base=2))
+    if(n>n1):
+       x=np.base_repr(num, base=2,padding=n-n1)
+    else:
+       x=np.base_repr(num, base=2)
+    return x
 
 def bin2int(binstr):
     """Convert a binary string to integer. """
